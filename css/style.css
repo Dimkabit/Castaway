@@ -107,6 +107,13 @@ body {
   padding: 0 0.9375rem;
 }
 
+.form__error {
+  position: absolute;
+  color: red;
+  margin-left: 8.75rem;
+  margin-top: 14.6875rem;
+}
+
 [class*=-ibg] {
   position: relative;
 }
@@ -121,6 +128,97 @@ body {
 
 [class*=-ibg_contain] img {
   object-fit: contain;
+}
+
+input[type=text],
+input[type=email],
+input[type=tel],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding-left: 1.25rem;
+}
+
+.input {
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+  padding: 0px 20px;
+  border: 1px solid #eee;
+}
+textarea.input {
+  resize: none;
+  padding: 0px 0px;
+}
+
+.rating {
+  display: flex;
+  align-items: flex-end;
+  font-size: 23px;
+  line-height: 0.75;
+  transition: opacity 0.3s ease 0s;
+  margin-bottom: 1.3125rem;
+}
+
+.rating.rating_sending {
+  opacity: 0.2;
+}
+
+.rating.rating_set .rating__active,
+.rating.rating_set .rating__item {
+  cursor: pointer;
+}
+
+.rating__body {
+  position: relative;
+}
+
+.rating__body::before {
+  content: "★★★★★";
+  display: block;
+}
+
+.rating__active {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.rating__active::before {
+  content: "★★★★★";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #ffd300;
+}
+
+.rating__items {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.rating__item {
+  flex: 0 0 20%;
+  height: 100%;
+  opacity: 0;
+}
+
+.rating__value {
+  display: none;
+  font-size: 50%;
+  line-height: 1;
+  padding: 0px 0px 0px 10px;
 }
 
 .btn {
@@ -247,14 +345,14 @@ body {
   gap: 0.9375rem 0.9375rem;
 }
 .latest-content__title {
-  font-size: clamp(2.8125rem, 3.2vw, 4rem);
+  font-size: clamp(2.375rem, 3.2vw, 4rem);
   line-height: clamp(2.8125rem, 3.5vw, 4.9375rem);
   letter-spacing: 2.88px;
   padding-bottom: 1.25rem;
 }
 
 .latest-card {
-  padding: 2.5rem;
+  padding: clamp(1.5625rem, 2.8vw, 2.5rem);
   display: flex;
   background: #000000;
   border-radius: 2rem;
@@ -300,8 +398,8 @@ body {
 }
 .latest-card__title {
   display: flex;
-  font-size: clamp(2.8125rem, 4vw, 4rem);
-  line-height: clamp(3.4375rem, 4.4vw, 4.375rem);
+  font-size: clamp(2.375rem, 4vw, 4rem);
+  line-height: clamp(3.125rem, 4.4vw, 4.375rem);
   letter-spacing: 2.56px;
   margin-bottom: 2.1875rem;
 }
@@ -398,6 +496,115 @@ body {
 
 .subscribe {
   padding-top: clamp(3.125rem, 7vw, 6.25rem);
+  margin-bottom: clamp(3.125rem, 7vw, 6.25rem);
+}
+.subscribe__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(2.1875rem, 4.2vw, 3.75rem);
+  background: #000000;
+  border-radius: 2rem;
+}
+@media (max-width: 61.99875em) {
+  .subscribe__content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+.subscribe__subtitle {
+  font-size: 1.125rem;
+  line-height: 1.5em;
+  color: #118DA8;
+}
+.subscribe__title {
+  font-size: clamp(2.8125rem, 10vw, 4.5rem);
+  line-height: 1.0972222222em;
+  max-width: 26.9375rem;
+  letter-spacing: 2.88px;
+  padding-bottom: 1.25rem;
+}
+.footer-subscribe__line {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.footer-subscribe__input {
+  display: flex;
+  min-width: clamp(16.875rem, 65vw, 31.25rem);
+  height: clamp(3.75rem, 11vw, 5.125rem);
+  background-color: #191919;
+  border-radius: 0.375rem;
+}
+.footer-subscribe__button {
+  display: block;
+  max-width: 5.5rem;
+  padding: 0.625rem 1.0625rem;
+  font-size: 0.9375rem;
+  line-height: 1.9333333333em;
+  color: rgba(255, 255, 255, 0.7);
+  background: #118DA8;
+  border-radius: 0.375rem;
+}
+
+.star {
+  padding-top: clamp(3.125rem, 7vw, 6.25rem);
+  padding-bottom: clamp(3.125rem, 7vw, 6.25rem);
+}
+.star-block {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+}
+
+.block-star {
+  flex: 1 1 28.125rem;
+  padding: clamp(1.875rem, 7vw, 3.125rem);
+  background: #000000;
+  border-radius: 2rem;
+}
+.block-star__title {
+  font-size: clamp(1.875rem, 4vw, 2.25rem);
+  line-height: 1.1944444444em;
+  margin-bottom: 1.1875rem;
+}
+.block-star__subtitle {
+  font-size: clamp(1.25rem, 2.8vw, 1.5rem);
+  line-height: 1.2083333333em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer {
+  padding-bottom: clamp(3.125rem, 7vw, 6.25rem);
+}
+.footer-block {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.footer-block__logo {
+  padding-bottom: 1.25rem;
+}
+.footer-block__social {
+  display: flex;
+  gap: 0.625rem;
+}
+.footer-block__item {
+  line-height: 1.5882352941em;
+}
+.footer-block__item:not(:last-child) {
+  padding-bottom: 0.625rem;
+}
+.footer-block__item-user {
+  line-height: 1.5882352941em;
+}
+.footer-block__item-user:not(:last-child) {
+  padding-bottom: 0.625rem;
+}
+.footer-block__links {
+  display: flex;
+  gap: 1.0625rem;
 }
 .main-page__block {
   display: grid;
@@ -429,7 +636,7 @@ body {
 }
 
 .take-page__title {
-  font-size: clamp(3.75rem, 4.5vw, 4.375rem);
+  font-size: clamp(3.125rem, 4.5vw, 4.375rem);
   line-height: clamp(4.0625rem, 5.5vw, 5.5rem);
   padding-bottom: 2.3125rem;
 }
@@ -448,6 +655,55 @@ body {
   display: flex;
   gap: 1.25rem;
 }
+.svg-wrap {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  overflow: hidden;
+}
+
+.section {
+  position: relative;
+  z-index: 1;
+  /* needed for setting pseudo-element z-index */
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.section span {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  vertical-align: bottom;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.section span::before,
+.section span::after {
+  pointer-events: none;
+  backface-visibility: hidden;
+  font-smoothing: antialiased;
+}
+
+.svgline span svg.svgline {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow: hidden;
+  margin: 0;
+  width: 100%;
+  height: 20px;
+  transition: stroke-dashoffset 0.3s ease-in-out;
+  transform: translateY(-90%);
+  fill: none;
+  stroke: #118DA8;
+  stroke-width: 5;
+  stroke-dasharray: 400px;
+  stroke-dashoffset: 400px;
+  stroke-dashoffset: 0px;
+}
+
 .page {
   padding-top: 1.625rem;
 }
