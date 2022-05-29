@@ -111,7 +111,7 @@ body {
   position: absolute;
   color: red;
   margin-left: 8.75rem;
-  margin-top: 14.6875rem;
+  margin-top: clamp(12rem, 32vw, 14.6875rem);
 }
 
 [class*=-ibg] {
