@@ -619,6 +619,10 @@ textarea.input {
   display: flex;
   justify-content: center;
 }
+.main-page__photo picture {
+  display: flex;
+  justify-content: center;
+}
 .main-page__photo img {
   object-fit: cover;
   border-radius: 0.9375rem;
